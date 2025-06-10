@@ -1,2 +1,3 @@
-# VEP-BCI
-SSMVEP-BCI project for object interaction and c-VEP for navigation on a VR environment
+# VR-Based BCI Navigation Game (SSMVEP)
+(Ongoing project)
+SSMVEP-BCI project for object interaction in a VR virtual museum.
