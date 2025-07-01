@@ -1,0 +1,6 @@
+2 types: 
+- grey/white wall, only 3 (center) stimuli
+- normal museum scene, center stimuli, training rounds on every round
+
+static head 
+light up the stimuli they have to watch in green for 5-6 seconds, and then train for x seconds
