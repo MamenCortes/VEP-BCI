@@ -1,0 +1,18 @@
+Testing feedback
+
+- What happens if the person is seeing more than 3 stimuli? → frame rate drops
+
+- Major issue with frame drop, specially with the center stimuli → try rendering only the stimuli that are in the field of view of the person (already implemented). The issue of Unity having to render to many things at the same time (too many calculation) could be one of the causes of the frame drop.
+
+- Increase rotation amplitude (worked better with amplitude 0.3 rather than 0.15)
+
+- Edit Python code to detect a stopTesting marker even when it is in the process of classifying.
+
+- Add a Stop button in unity
+
+- Be able to send several configs in the same session (edit python code)
+
+- Find a way of cheking if the movement frequency is correct → Check stimuli coroutines.
+
+- Consider implementing eye tracking to make sure the person is looking to the right direction.
+- I increased the distance between the outer stimuli and that worked better
