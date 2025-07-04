@@ -123,20 +123,23 @@ In a different arrangement like (1-2-3), selecting class 1 would mean looking le
 ### Screenshots
 *TODO: Add screenshots to images folder*
 
-![VR Waiting Room](images/vr_waiting_room.png)  
+![VR Waiting Room](Images/vr_waiting_room.png)  
 *Fig 1: Initial VR waiting screen.*
 
-![Configuration Menu](images/config_menu.png)  
+![Configuration Menu](Images/configuration-menu.png)  
 *Fig 2: Experimenter's menu to configure stimuli and parameters.*
 
-![Museum Scene](images/museum_start.png)  
+![Museum Scene](Images/museum_start.png)  
 *Fig 3: Player in the museum surrounded by 12 stimuli.*
 
-![Classification in Progress](images/classifying.png)  
-*Fig 4: Stimuli are flickering and classification is running.*
+![Testing Menu](Images/testing-menu.png)  
+*Fig 4: Experimenter's menu to configure stimuli and parameters.*
 
-![Post-classification Movement](images/player_moved.png)  
-*Fig 5: Player moved in direction based on classification.*
+![Watch demo video of classification in progress](Images/runtime-testing-arrows.MOV)  
+*Fig 5: Arrow stimuli are moving and classification is running.*
+
+![Watch demo video of classification in progress](Images/runtime-testing-diamonds.MOV)  
+*Fig 6: Diamond stimuli are moving and classification is running.*
 
 ## Testing without EEG Headset
 The project can be tested without an EEG headset by simulating the classification outputs pressing the left, right and up arrows during runtime. In order for them to work, the game should be in testing mode. That is, a sequence must have been selected and the button start pressed. 
