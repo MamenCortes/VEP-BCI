@@ -97,7 +97,10 @@ public class LSLManager: Singleton<GameManager>
                 int classifiedIndex = int.Parse(sample[0]);
                 Debug.Log($"Received classification: {classifiedIndex}");
                 // Fire the event in MuseumManager
-                OnClassificationReceived?.Invoke(classifiedIndex);
+                if(classifiedIndex != 0)
+                {
+                    OnClassificationReceived?.Invoke(classifiedIndex);
+                } 
             }
         }
         else { //Search and Open the stream

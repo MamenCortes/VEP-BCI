@@ -61,6 +61,9 @@ public class MuseumManager : MonoBehaviour
     public int numCenterStimuli = 12;
     public int numOuterStimuli = 3;
     private int selectedCenterStimuliIndex;
+    private float distanceBetweenOuterStimuli = 1f; //0.75f
+    private float rotation_amplitude = 30f;
+    private float zoom_amplitude = 0.4f; 
 
     //Events
     //public static event Action<string> OnStimuliStart;
@@ -497,7 +500,7 @@ public class MuseumManager : MonoBehaviour
             picposition.y = stimuli_height; 
             GameObject leftOuterStimuli = Instantiate(selected_obj_Prefab, picposition, picture.rotation);
             leftOuterStimuli.transform.localScale = selected_obj_scale;
-            leftOuterStimuli.transform.Translate(Vector3.left * 0.75f, Space.Self);
+            leftOuterStimuli.transform.Translate(Vector3.left * distanceBetweenOuterStimuli, Space.Self);
             leftOuterStimuli.SetActive(false);
             leftOuterStimuli.name = leftOuterStimuli.name + "left "+j; 
 
@@ -510,7 +513,7 @@ public class MuseumManager : MonoBehaviour
             //set center stimuli position and scale, don�t show in scene yet
             GameObject goBackStimuli = Instantiate(selected_obj_Prefab, picposition, picture.rotation);
             goBackStimuli.transform.localScale = selected_obj_scale;
-            rightOuterStimuli.transform.Translate(Vector3.right * 0.75f, Space.Self);
+            rightOuterStimuli.transform.Translate(Vector3.right * distanceBetweenOuterStimuli, Space.Self);
             goBackStimuli.SetActive(false);
             goBackStimuli.name = goBackStimuli.name + "goBack "+j;
 
@@ -554,23 +557,35 @@ public class MuseumManager : MonoBehaviour
         //float duration = 60f; // seconds
         float startTime = Time.time;
         //OnStimuliStart?.Invoke("startStimulation");
-        SendMarker?.Invoke("startStimulation"); 
+        SendMarker?.Invoke("startStimulation");
+        float phase = 0;
+        float scaleFactor = 0; 
+        Vector3 scale = Vector3.one;
+        Camera cam = GameManager.Instance.player.GetComponentInChildren<Camera>();
+        Vector3 viewport; 
 
         //while (Time.time - startTime < duration)
         while (!classificationReceived)
         {
+            
             foreach (StimuliObj d in stimuliObjects)
             {
-                d.frameCounter = (d.frameCounter + 1) % d.frameCount;
+                //Animate only if it is inside the field of view
+                viewport = cam.WorldToViewportPoint(d.transform.position);
+                if (d.isVisible(viewport))
+                {
+                    d.frameCounter = (d.frameCounter + 1) % d.frameCount;
 
-                float phase = (float)d.frameCounter / d.frameCount;
-                float scaleFactor = 1 + Mathf.Sin(2 * Mathf.PI * phase) * 0.4f;
+                    phase = (float)d.frameCounter / d.frameCount;
+                    scaleFactor = 1 + Mathf.Sin(2 * Mathf.PI * phase) * zoom_amplitude;
 
-                d.gameObject.transform.localScale = new Vector3(
-                    scaleFactor * d.originalScale.x,
-                    scaleFactor * d.originalScale.y,
-                    scaleFactor * d.originalScale.z
-                );
+                    d.gameObject.transform.localScale = new Vector3(
+                        scaleFactor * d.originalScale.x,
+                        scaleFactor * d.originalScale.y,
+                        scaleFactor * d.originalScale.z
+                    );
+                }
+
             }
 
             yield return null;
@@ -596,21 +611,29 @@ public class MuseumManager : MonoBehaviour
 
         //float duration = 60f; // seconds
         float startTime = Time.time;
-        float rotation_amplitude = 15f;
         //OnStimuliStart?.Invoke("startStimulation");
-        SendMarker?.Invoke("startStimulation"); 
+        SendMarker?.Invoke("startStimulation");
+        float phase = 0;
+        float angleOffset = 0;
+        Camera cam = GameManager.Instance.player.GetComponentInChildren<Camera>();
+        Vector3 viewport;
 
         //while (Time.time - startTime < duration)
         while (!classificationReceived)
         {
             foreach (StimuliObj d in stimuliObjects)
             {
-                //Debug.Log("Stimulation frequency = " + d.frequency + "; Framecount +" + d.frameCount); 
-                d.frameCounter = (d.frameCounter + 1) % d.frameCount;
+                //Animate only if it is inside the field of view
+                viewport = cam.WorldToViewportPoint(d.transform.position);
+                if (d.isVisible(viewport))
+                {
+                    //Debug.Log("Stimulation frequency = " + d.frequency + "; Framecount +" + d.frameCount); 
+                    d.frameCounter = (d.frameCounter + 1) % d.frameCount;
 
-                float phase = (float)d.frameCounter / d.frameCount;
-                float angleOffset = Mathf.Sin(2 * Mathf.PI * phase) * rotation_amplitude;
-                d.gameObject.transform.rotation = d.originalRotation * Quaternion.Euler(angleOffset, 0, 0);
+                    phase = (float)d.frameCounter / d.frameCount;
+                    angleOffset = Mathf.Sin(2 * Mathf.PI * phase) * rotation_amplitude;
+                    d.gameObject.transform.rotation = d.originalRotation * Quaternion.Euler(angleOffset, 0, 0);
+                }
             }
 
             yield return null;
