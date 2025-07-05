@@ -137,7 +137,7 @@ In a different arrangement like (1-2-3), selecting class 1 would mean looking le
 ![Museum Scene 2](Images/museum-waiting-view2.png) 
 *Fig 3.2: (**VR-View**) Player in the museum surrounded by arrow stimuli waiting for testing to start.*
 
-![Museum Scene 3](Images/top-stimuli-view.png) 
+![Museum Scene 3](Images/top-stimuli-view.jpg) 
 *Fig 3.3: Top View of 12 stimuli forming a dodecagon around the player located in the center of the room*
 
 ![Testing Menu](Images/testing-menu.png)  
