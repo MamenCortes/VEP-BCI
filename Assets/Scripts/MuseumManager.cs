@@ -7,7 +7,6 @@ using UnityEngine;
 public class MuseumManager : MonoBehaviour
 {
     //Diamond spawning 
-    public GameObject spawn_object;
     public Material pinkMat;
     public Material blueMat; 
     //Diamond
@@ -16,25 +15,21 @@ public class MuseumManager : MonoBehaviour
     private Quaternion diamond_rotation = Quaternion.Euler(0, 0, 0);
     //public Vector3 diamond_scale = new Vector3(0.2f, 0.2f, 0.2f);
     public Vector3 diamond_scale = new Vector3(1f, 1f, 1f);
-    public float diamond_height = 0.3f;
 
     //Cube
     public GameObject cubePrefab;
     private Quaternion cube_rotation = Quaternion.Euler(0, 0, 0);
     public Vector3 cube_scale = new Vector3(0.3f, 0.3f, 0.3f);
-    public float cube_height = 0.3f;
 
     //Arrow
     public GameObject arrowPrefab;
     private Quaternion arrow_rotation = Quaternion.Euler(0, 0, 90);
     //public Vector3 arrow_scale = new Vector3(2f, 12f, 12f);
     public Vector3 arrow_scale = new Vector3(1f, 1f, 1f);
-    public float arrow_height = 0.3f; //0.05
     private float stimuli_height = 0.5f;
 
     //Stimuli
     public GameObject outerStimuliWalls;
-    public GameObject parentArtObject;
     private List<StimuliObj> centerStimuliObj = new List<StimuliObj>();
     private List<Vector3> posInFrontPictures = new List<Vector3>();
     private StimuliObj[,] outerStimuliObj2;
@@ -57,9 +52,9 @@ public class MuseumManager : MonoBehaviour
     public enum Stimuli_State { CenterStimuliOn, OuterStimuliOn }
     [HideInInspector]
     public Stimuli_State gameState;
-    public float distanceToPlayer = 2.0f;
-    public int numCenterStimuli = 12;
-    public int numOuterStimuli = 3;
+    private float distanceToPlayer = 2.0f;
+    private int numCenterStimuli = 12;
+    private int numOuterStimuli = 3;
     private int selectedCenterStimuliIndex;
     private float distanceBetweenOuterStimuli = 1f; //0.75f
     private float rotation_amplitude = 30f;
@@ -68,8 +63,6 @@ public class MuseumManager : MonoBehaviour
     //Events
     //public static event Action<string> OnStimuliStart;
     //public static event Action<string> ConfigSub;
-    public static event Action<string> ConfigFreq;
-    public static event Action<string> ConfigDone;
     //public static event Action<string, float> SendMarker; 
     public static event Action<string> SendMarker;
     private bool classificationReceived = false;
@@ -77,7 +70,6 @@ public class MuseumManager : MonoBehaviour
 
     private List<float> targetFreqs; 
     private int targetIndex; 
-    private float targetFrequency;
     public bool testing;
 
     private void Awake()
@@ -434,7 +426,7 @@ public class MuseumManager : MonoBehaviour
     /// <param name="scale">The scale of the prefab. </param>
     /// <param name="lookToCenter">Set true to face the object to the center, set false to face away from the center </param>
     /// <returns>Describe return value.</returns>
-    void InitializeStimuli(GameObject prefab, Quaternion rotation, Vector3 scale, bool lookToCenter)
+    private void InitializeStimuli(GameObject prefab, Quaternion rotation, Vector3 scale, bool lookToCenter)
     {
         centerStimuliObj.Clear();
         Vector3[] spawn_locations = GameManager.PoligonCalculator(numCenterStimuli, distanceToPlayer, stimuli_height);

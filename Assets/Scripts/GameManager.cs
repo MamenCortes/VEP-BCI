@@ -12,8 +12,7 @@ public class GameManager : Singleton<GameManager>
     public enum Object_Mesh{Diamond, Cube, Arrow}
     public enum Movements{Rotation, Zoom}
     public enum Scenes { Menu, Museum, Training };
-    public enum MaterialTexture { Pink, Blue }
-    public enum LocationType { Center, Outer }
+    public enum MaterialTexture { Pink, Blue };
     public GameObject player;
     public static event Action<Scenes> OnSceneChangedTo;
     public List<string> sequences = new List<string>();

@@ -113,7 +113,7 @@ public class TestingMenuManager : MonoBehaviour
         //Debug.Log("MuseumManager mode"+m_Manager.testing); 
     }
 
-    public void ClearChildren(Transform t)
+    private void ClearChildren(Transform t)
     {
         var children = t.Cast<Transform>().ToArray();
 
@@ -123,7 +123,7 @@ public class TestingMenuManager : MonoBehaviour
         }
     }
 
-    public void updateSelectedSequence(int num)
+    private void updateSelectedSequence(int num)
     {
         if (m_Manager.testing)
         {

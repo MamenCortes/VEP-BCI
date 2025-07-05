@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 //Check: https://github.com/labstreaminglayer/liblsl-Csharp/blob/master/README-Unity.md
-public class LSLManager: Singleton<GameManager>
+public class LSLManager: Singleton<LSLManager>
 {
     //Adjust as necessary
     public string OutletStreamName = "Unity.MarkerStream";
