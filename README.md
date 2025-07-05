@@ -122,24 +122,32 @@ In a different arrangement like (1-2-3), selecting class 1 would mean looking le
 
 ### Screenshots
 *TODO: Add screenshots to images folder*
+![Watch demo video of classification in progress](Images/runtime-testing-arrows.MOV)
+![Watch demo video of classification in progress](Images/runtime-testing-diamonds.MOV)
 
-![VR Waiting Room](Images/vr_waiting_room.png)  
-*Fig 1: Initial VR waiting screen.*
+![VR Waiting Room](Images/waiting-room.png)  
+*Fig 1: (**VR-View**) Initial VR waiting screen.*
 
 ![Configuration Menu](Images/configuration-menu.png)  
 *Fig 2: Experimenter's menu to configure stimuli and parameters.*
 
-![Museum Scene](Images/museum_start.png)  
-*Fig 3: Player in the museum surrounded by 12 stimuli.*
+![Museum Scene 1](Images/museum-waiting-view.png)  
+*Fig 3.1: (**VR-View**) Player in the museum surrounded by diamond stimuli waiting for testing to start.*
+
+![Museum Scene 2](Images/museum-waiting-view2.png) 
+*Fig 3.2: (**VR-View**) Player in the museum surrounded by arrow stimuli waiting for testing to start.*
+
+![Museum Scene 3](Images/top-stimuli-view.png) 
+*Fig 3.3: Top View of 12 stimuli forming a dodecagon around the player located in the center of the room*
 
 ![Testing Menu](Images/testing-menu.png)  
 *Fig 4: Experimenter's menu to configure stimuli and parameters.*
 
-![Watch demo video of classification in progress](Images/runtime-testing-arrows.MOV)  
-*Fig 5: Arrow stimuli are moving and classification is running.*
+![Museum Scene Ongoing Classification](Images/moving-stimuli-arrows.png)  
+*Fig 5: (**VR-View**) Arrow stimuli are moving and classification is running.*
 
-![Watch demo video of classification in progress](Images/runtime-testing-diamonds.MOV)  
-*Fig 6: Diamond stimuli are moving and classification is running.*
+![Stimuli in front of picture](Images/in-front-of-picture.png)  
+*Fig 6: (**VR-View**) Arrow stimuli in front of picture.*
 
 ## Testing without EEG Headset
 The project can be tested without an EEG headset by simulating the classification outputs pressing the left, right and up arrows during runtime. In order for them to work, the game should be in testing mode. That is, a sequence must have been selected and the button start pressed. 
