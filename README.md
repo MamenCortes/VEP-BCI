@@ -2,6 +2,8 @@
 
 This project implements a VR-based Brain-Computer Interface (BCI) using Unity, g.tec amplifiers, and the Lab Streaming Layer (LSL) framework. The system presents Steady State Motion Visual Evoked Potentials (SSMVEP) stimuli in a VR Museum environment and processes EEG responses for real-time interaction and navigation.
 
+**NOTE**: Refer to the [Documentation](/Documentation) folder for in depth documentation, UML class diagrams and more. 
+
 ## Table of Contents
 1. [Requirements](#requirements)
 2. [Installation and Setup](#installation-and-setup)
@@ -149,7 +151,7 @@ In a different arrangement like (1-2-3), selecting class 1 would mean looking le
 ![Stimuli in front of picture](Images/in-front-of-picture.png)  
 *Fig 6: (**VR-View**) Arrow stimuli in front of picture.*
 
-## Testing without EEG Headset
+## Testing without EEG Cap
 The project can be tested without an EEG headset by simulating the classification outputs pressing the left, right and up arrows during runtime. In order for them to work, the game should be in testing mode. That is, a sequence must have been selected and the button start pressed. 
 - Left --> classification 1
 - Up --> classification 2
